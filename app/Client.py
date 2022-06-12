@@ -1,16 +1,16 @@
 import socket
 from getpass import getpass
 
-from Actions.ClientFileController import ClientFileController
+from actions.ClientFileController import ClientFileController
 
 
-class Client:
+class ClientThread:
     SERVER = "127.0.0.1"
     PORT = 8080
 
     def __init__(self):
         self.server_connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.server_connection.connect((Client.SERVER, Client.PORT))
+        self.server_connection.connect((ClientThread.SERVER, ClientThread.PORT))
         self.client_data = ClientFileController()
 
     def run_connection(self):
@@ -37,7 +37,7 @@ class Client:
                     while True:
                         if selected_option == '5':
                             self.closing_connection()
-
+                            break
                         if selected_option == '1':
                             # account balance
                             print(self.get_message_from_server())
@@ -88,7 +88,3 @@ class Client:
         print('Closing client connection')
         self.server_connection.close()
         exit(0)
-
-
-client = Client()
-client.run_connection()
