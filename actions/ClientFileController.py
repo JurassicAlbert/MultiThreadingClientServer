@@ -43,14 +43,17 @@ class ClientFileController:
                 break
 
     def manipulate_money_to_selected_client(self, client, value, operation):
+        #doesn't allow negative value
+        value = abs(float(value))
         with open(self.__users_data_file_path, 'r') as file:
             clients = json.load(file)
             for key in clients:
+
                 if clients[key] == client:
                     if operation == 'add':
-                        clients[key]['balance'] = clients[key]['balance'] + float(value)
+                        clients[key]['balance'] = clients[key]['balance'] + value
                     if operation == 'remove':
-                        clients[key]['balance'] = clients[key]['balance'] - float(value)
+                        clients[key]['balance'] = clients[key]['balance'] - value
         with open(self.__users_data_file_path, 'w') as file:
             json.dump(clients, file)
 

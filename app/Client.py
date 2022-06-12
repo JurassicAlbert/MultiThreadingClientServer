@@ -61,7 +61,9 @@ class ClientThread:
                             # ask about money to transfer & show account balance
                             print(self.get_message_from_server())
                             print(self.get_message_from_server())
-                            transfer_money = input('transfer money: ')
+                            transfer_money = -1.00
+                            while transfer_money < 0.00:
+                                transfer_money = float(input('transfer money (can\'t be nagative): '))
                             # respond to server
                             self.send_message_to_server(transfer_money)
                             # ask about account nr
