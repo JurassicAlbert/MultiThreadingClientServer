@@ -19,3 +19,5 @@ Oraz aplikacja klienta pozwalająca komunikować się z serverem na danym wątku
 
 Możliwa jest praca serwera z wieloma aplikacjami klienta uruchomionymi w tym samym czasie
 ___
+
+v0.02 - secured negative values 12.06.2022 - 3:19 P.M.
